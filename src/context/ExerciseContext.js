@@ -69,10 +69,10 @@ let ExerciseContextProvider = ({ children }) => {
   let searchExercises = () => {
     const searchedExercises = exercises.filter(
       (item) =>
-        item.name.toLowerCase().includes(searchName) ||
-        item.target.toLowerCase().includes(searchName) ||
-        item.equipment.toLowerCase().includes(searchName) ||
-        item.bodyPart.toLowerCase().includes(searchName)
+        item.name.toLowerCase().includes(searchName.toLowerCase()) ||
+        item.target.toLowerCase().includes(searchName.toLowerCase()) ||
+        item.equipment.toLowerCase().includes(searchName.toLowerCase()) ||
+        item.bodyPart.toLowerCase().includes(searchName.toLowerCase())
     );
     setFilterExercises(searchedExercises);
   };
