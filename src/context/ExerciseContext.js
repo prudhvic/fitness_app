@@ -7,10 +7,13 @@ let ExerciseContextProvider = ({ children }) => {
   let [bodyParts, setBodyParts] = useState([]);
   let [currentPage, setCurrentPage] = useState(1);
   let [exercisesPerPage, setExercisesPerPage] = useState(30);
+
   let indexOfLastExercise = currentPage * exercisesPerPage;
   let indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  console.log(indexOfFirstExercise, indexOfLastExercise);
   let [searchName, setSearchName] = useState("");
   let [filterExercises, setFilterExercises] = useState([]);
+  console.log(currentPage);
   useEffect(() => {
     let fetchExercises = async () => {
       let data = await fetchData(
@@ -73,9 +76,11 @@ let ExerciseContextProvider = ({ children }) => {
     );
     setFilterExercises(searchedExercises);
   };
+  console.log(filterExercises, filterExercises.length, "Hi of you");
   return (
     <ExerciseContext.Provider
       value={{
+        filterExercises,
         searchName,
         filterHandler,
         fetchByBodyPart,

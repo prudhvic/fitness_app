@@ -5,10 +5,19 @@ import styles from "./Paginate.module.css";
 const Paginate = () => {
   let [currentTab, setCurrentTab] = useState(1);
 
-  let { exercises, exercisesPerPage, setCurrentPage, currentPage } =
-    useExerciseContext();
+  let {
+    exercises,
+    exercisesPerPage,
+    filterExercises,
+    setCurrentPage,
+    currentPage,
+  } = useExerciseContext();
   let pageNums = [];
-  for (let i = 0; i < Math.floor(exercises.length / exercisesPerPage); i++) {
+  for (
+    let i = 0;
+    i < Math.floor(filterExercises.length / exercisesPerPage);
+    i++
+  ) {
     pageNums.push(i + 1);
   }
   let btnLength = pageNums.length;
@@ -24,7 +33,6 @@ const Paginate = () => {
     }
     setCurrentPage((currentTab - 1) * 10 - 10 + 1);
   };
-  let isFirst = true;
   let nextTab = () => {
     setCurrentTab((prev) => (prev > tablength ? 1 : prev + 1));
     if (currentTab > tablength) {
@@ -35,26 +43,31 @@ const Paginate = () => {
   };
   return (
     <div className={styles.pagination}>
-      <button className={styles.nextBtn} onClick={prevTab}>
-        <GrLinkPrevious />
-      </button>
+      {pageNums.length > 9 && (
+        <button className={styles.nextBtn} onClick={prevTab}>
+          <GrLinkPrevious />
+        </button>
+      )}
       <div className={styles.nums}>
-        {pageNums.map((pageNum) => (
-          <button
-            className={pageNum === currentPage ? styles.active : ""}
-            onClick={() => {
-              setCurrentPage(pageNum);
-              window.scrollTo(0, 1600);
-            }}
-          >
-            {pageNum}
-          </button>
-        ))}
+        {pageNums.length > 1 &&
+          pageNums.map((pageNum) => (
+            <button
+              className={pageNum === currentPage ? styles.active : ""}
+              onClick={() => {
+                setCurrentPage(pageNum);
+                window.scrollTo(0, 1600);
+              }}
+            >
+              {pageNum}
+            </button>
+          ))}
       </div>
 
-      <button className={styles.prevBtn} onClick={nextTab}>
-        <GrLinkNext />
-      </button>
+      {pageNums.length > 9 && (
+        <button className={styles.prevBtn} onClick={nextTab}>
+          <GrLinkNext />
+        </button>
+      )}
     </div>
   );
 };
