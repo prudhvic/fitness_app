@@ -1,0 +1,64 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-inline: 10px;
+  margin-bottom: 10px;
+}
+.nums {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nums button {
+  padding: 5px;
+  font-weight: bold;
+  background-color: #0b0608;
+  color: #f2eef7;
+  width: 2rem;
+  height: 2rem;
+
+  border-radius: 50%;
+}
+.nextBtn,
+.prevBtn {
+  font-size: 1.5rem;
+  background-color: rgba(236, 223, 224, 0.688);
+  border: none;
+  font-weight: bold;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  place-items: center;
+  padding: 0.3rem;
+}
+.nextBtn svg,
+.prevBtn svg {
+  font-size: 30px;
+}
+.nums .active {
+  background-color: white;
+  color: black;
+}
+@media (max-width: 960px) {
+  .nextBtn,
+  .prevBtn {
+    width: 2rem;
+    height: 2rem;
+  }
+  .nums {
+    flex-wrap: wrap;
+    gap: .3em;
+    justify-content: center;
+  }
+  .nextBtn svg,
+  .prevBtn svg {
+    font-size: 1rem;
+  }
+  .nums button {
+    font-size: 0.8rem;
+  }
+}

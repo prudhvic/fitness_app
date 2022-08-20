@@ -1,0 +1,14 @@
+.exercises {
+  display: grid;
+  gap: 0.5rem;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+@media (max-width:960px){
+  .exercises {
+    display: grid;
+    gap: 0.5rem;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
