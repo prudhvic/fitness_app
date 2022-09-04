@@ -3,6 +3,7 @@
   width: 290px;
   display: flex;
   height: 100%;
+  border-radius: 10px;
   flex-direction: column;
 }
 .card img {
@@ -10,6 +11,7 @@
   max-width: 60%;
   justify-self: center;
   align-self: center;
+  border-radius: 7px;
 }
 .card button {
   padding: 0.5rem;
