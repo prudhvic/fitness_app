@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Detail from "../components/Detail";
 import Exercises from "../components/Exercises";
+import ExerciseVideos from "../components/ExerciseVideos";
 import SimilarExercises from "../components/SimilarExercises";
-import { ExerciseOptions, fetchData } from "../utils/fetchData";
+import {
+  ExerciseOptions,
+  ExerciseVideoOptions,
+  fetchData,
+} from "../utils/fetchData";
 const ExerciseDetail = () => {
   let [exercise, setExercise] = useState({});
   let params = useParams();
   let [targetExercises, setTargetExercises] = useState([]);
   let [equipmentExercises, setEquipmentExercises] = useState([]);
+  const youtubeSearchUrl = "https://youtube-search-and-download.p.rapidapi.com";
+  let [Exercisevideos, setExerciseVideos] = useState([]);
   useEffect(() => {
     let fetchExercise = async () => {
       let data = await fetchData(
@@ -21,6 +28,11 @@ const ExerciseDetail = () => {
   }, [params.id]);
   useEffect(() => {
     let fetchSimilarExercises = async () => {
+      const exerciseVideosData = await fetchData(
+        `${youtubeSearchUrl}/search?query=${exercise.name} exercise`,
+        ExerciseVideoOptions
+      );
+      setExerciseVideos(exerciseVideosData.contents);
       let targetexercises = await fetchData(
         `https://exercisedb.p.rapidapi.com/exercises/target/${exercise?.target}`,
         ExerciseOptions
@@ -33,13 +45,13 @@ const ExerciseDetail = () => {
       setEquipmentExercises(equipmentexercises);
     };
     fetchSimilarExercises();
-  }, [params.id, exercise]);
+  }, [params.id, exercise.name]);
   console.log(targetExercises);
   console.log(exercise);
   return (
     <div>
       <Detail exercise={exercise} />
-
+      <ExerciseVideos Exercisevideos={Exercisevideos} name={exercise.name} />
       <SimilarExercises
         exercises={targetExercises}
         title="similar target Exercises"
