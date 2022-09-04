@@ -1,0 +1,42 @@
+.container h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+.exercises {
+  display: grid;
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  gap: 1rem;
+  margin: 0 auto;
+  display: flex;
+  max-width: 100%;
+  scroll-snap-type: x mandatory;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.exercises > a {
+  scroll-snap-align: start;
+  background-color: white;
+  padding: 10px;
+  display: grid;
+  border-radius: 10px;
+  gap: 1em;
+}
+
+.exercises::-webkit-scrollbar {
+  height: 15px;
+}
+.exercises::-webkit-scrollbar-track {
+  background-color: none;
+}
+.exercises::-webkit-scrollbar-thumb {
+  background-color: #c85250;
+  /* box-shadow: 0 0 6px black; */
+  border-radius: 5px;
+  width: 40px;
+}

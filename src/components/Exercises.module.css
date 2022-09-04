@@ -1,14 +1,30 @@
+.container {
+  width: 100%;
+}
+
 .exercises {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.3rem;
   padding: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
-@media (max-width:960px){
+@media (max-width: 960px) {
   .exercises {
     display: grid;
     gap: 0.5rem;
     padding: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
+}
+@media (max-width: 600px) {
+  .exercises {
+    display: grid;
+    gap: 0.5rem;
+    padding: 10px;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
 }

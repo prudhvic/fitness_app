@@ -1,4 +1,9 @@
+
+*{
+text-transform: capitalize;
+}
 body {
   background-color: #ebf5f7;
   height: 100%;
+  
 }

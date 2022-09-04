@@ -6,11 +6,13 @@ const Exercises = () => {
   let { currentExercises: exercises } = useExerciseContext();
 
   return (
-    <main className={styles.exercises}>
-      {exercises.map((exercise) => (
-        <ExerciseCard {...exercise} id={exercise.id} key={exercise.id} />
-      ))}
-    </main>
+    <div className={styles.container}>
+      <main className={styles.exercises}>
+        {exercises.map((exercise) => (
+          <ExerciseCard {...exercise} id={exercise.id} key={exercise.id} />
+        ))}
+      </main>
+    </div>
   );
 };
 
