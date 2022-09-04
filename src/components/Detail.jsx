@@ -22,15 +22,14 @@ const Detail = ({ exercise }) => {
   return (
     <div className={styles.details}>
       <div className={styles.info}>
-        
         <img src={exercise.gifUrl} alt={exercise.name} />
       </div>
       <div className={styles.detail}>
-      <h2>{exercise.name}</h2>
+        <h2>{exercise.name}</h2>
         <p>
           Exercises keep you strong. <span>{exercise.name}</span> bup is one of
           the best <br /> exercises to target your {exercise.target}. It will
-          help you improve your <br /> mood and gain energy.
+          help you improve your mood and gain energy.
         </p>
         <div className={styles.tags}>
           {details.map((detail) => (
