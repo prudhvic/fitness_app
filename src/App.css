@@ -1,9 +1,55 @@
-
-*{
-text-transform: capitalize;
+* {
+  text-transform: capitalize;
 }
 body {
   background-color: #ebf5f7;
   height: 100%;
-  
+}
+.card-loader {
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+  display: grid;
+
+  justify-items: center;
+  box-shadow: 0 0 0px black;
+  border-radius: 10px;
+}
+.img-loader {
+  background-color: rgb(228, 217, 217);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: fadeIn 1s linear infinite;
+}
+.title-loader {
+  background-color: rgb(228, 217, 217);
+  width: 60px;
+  height: 20px;
+  animation: fadeIn 1s linear infinite;
+
+  margin-top: 10px;
+  border-radius: 4px;
+}
+.text-loader {
+  width: 150px;
+  animation: fadeIn 1s linear infinite;
+
+  background-color: rgb(228, 217, 217);
+  border-radius: 4px;
+  height: 20px;
+  margin-top: 5px;
+}
+.flex {
+  display: flex;
+  gap: 1em;
+}
+@keyframes fadeIn {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
 }

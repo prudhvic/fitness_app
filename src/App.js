@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import ExerciseDetail from "./pages/ExerciseDetail";
 import Navbar from "./components/Navbar";
 import ExercisePage from "./pages/Exercises";
+import Skeleton from "./utils/Skeleton";
 function App() {
   return (
     <div className="App">
