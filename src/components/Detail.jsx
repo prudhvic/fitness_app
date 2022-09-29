@@ -3,6 +3,7 @@ import styles from "./Detail.module.css";
 import BodyPartImg from "../assets/icons/body-part.png";
 import equipmentImg from "../assets/icons/equipment.png";
 import targetImg from "../assets/icons/target.png";
+import BackBtn from "../utils/BackBtn";
 
 const Detail = ({ exercise }) => {
   let details = [
@@ -21,6 +22,7 @@ const Detail = ({ exercise }) => {
   ];
   return (
     <div className={styles.details}>
+      <BackBtn className="detail-back-btn" />
       <div className={styles.info}>
         <img src={exercise.gifUrl} alt={exercise.name} />
       </div>

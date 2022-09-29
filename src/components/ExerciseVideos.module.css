@@ -10,28 +10,42 @@
   font-size: 1.3em;
   font-weight: 500;
 }
-.overlay {
-  width: 100%;
+
+.video_card {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.video_card:hover::after {
+  transition: 0.5s;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
   height: 100%;
 }
 .icon {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  top: 50%;
-  left: 50%;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+
+  bottom: -10px;
+  right: 0;
   overflow: hidden;
   border-radius: 10px;
   translate: -50% -50%;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .icon svg {
   font-size: 3rem;
-  color: white;
+  color: #ef233c;
+  width: 3rem;
+  height: 3rem;
 }
 .videos {
   display: grid;
@@ -51,13 +65,14 @@
   color: black;
   position: relative;
 }
-.videos > *:hover .icon {
-  background-color: rgba(255, 255, 255, 0.4);
-  transition: 0.3s;
-}
-.videos > *:hover .icon svg {
-  transition: 0.4s;
-  color: black;
+
+.video_card:hover .icon {
+  scale: 3;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  top: 50%;
+  left: 50%;
+  border-radius: 200%;
+  background-color: white;
 }
 .videos h3 {
   padding: 0.6em 0.5em;
@@ -66,9 +81,9 @@
   font-weight: 600;
 }
 .videos img {
+  object-fit: cover;
   width: 100%;
-  border-radius: 10px;
-  height: 100%;
+  height: 270px;
 }
 
 .videos p {

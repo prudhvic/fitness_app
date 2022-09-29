@@ -19,11 +19,12 @@
   background-color: white;
   padding: 10px;
   display: grid;
+  grid-template-rows: 4fr 1fr;
   border-radius: 10px;
   gap: 1em;
 }
 .parts > div > img {
-  max-width: 120px;
+  max-width: 160px;
 }
 .parts::-webkit-scrollbar {
   height: 15px;

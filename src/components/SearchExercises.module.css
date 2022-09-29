@@ -1,7 +1,9 @@
 .form {
   display: grid;
   place-content: center;
+  position: relative;
   padding: 1em;
+  align-items: center;
 }
 .form-control {
   display: flex;
@@ -34,5 +36,4 @@
   .form-control input {
     width: 200px;
   }
-  
 }

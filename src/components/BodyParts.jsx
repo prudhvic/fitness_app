@@ -10,7 +10,7 @@ const BodyParts = () => {
       <div className={styles.parts}>
         {bodyParts.map((part, index) => (
           <div key={index} onClick={() => fetchByBodyPart(part)}>
-            <img src={gymImg} alt="gym" />
+            <img src={`/images/${part}.jpg`} alt="gym" />
             <h3>{part}</h3>
           </div>
         ))}

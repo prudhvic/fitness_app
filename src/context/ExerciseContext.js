@@ -59,10 +59,10 @@ let ExerciseContextProvider = ({ children }) => {
     setSearchName(e.target.value);
     const searchedExercises = exercises.filter(
       (item) =>
-        item.name.toLowerCase().includes(e.target.value) ||
-        item.target.toLowerCase().includes(e.target.value) ||
-        item.equipment.toLowerCase().includes(e.target.value) ||
-        item.bodyPart.toLowerCase().includes(e.target.value)
+        item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        item.target.toLowerCase().includes(e.target.value.teoLowerCase()) ||
+        item.equipment.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        item.bodyPart.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setFilterExercises(searchedExercises);
   };
@@ -75,6 +75,7 @@ let ExerciseContextProvider = ({ children }) => {
         item.bodyPart.toLowerCase().includes(searchName.toLowerCase())
     );
     setFilterExercises(searchedExercises);
+    setSearchName("");
   };
   console.log(filterExercises, filterExercises.length, "Hi of you");
   return (

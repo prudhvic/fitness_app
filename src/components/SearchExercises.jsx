@@ -1,5 +1,6 @@
 import React from "react";
 import { useExerciseContext } from "../context/ExerciseContext";
+import BackBtn from "../utils/BackBtn";
 import styles from "./SearchExercises.module.css";
 const SearchExercises = () => {
   let { searchName, filterHandler, searchExercises } = useExerciseContext();
@@ -10,6 +11,7 @@ const SearchExercises = () => {
       }}
       className={styles.form}
     >
+      <BackBtn className="main-back-btn" />
       <div className={styles["form-control"]}>
         <input
           type="text"

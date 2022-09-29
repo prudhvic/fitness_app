@@ -45,6 +45,39 @@ body {
   display: flex;
   gap: 1em;
 }
+.main-back-btn,
+.detail-back-btn {
+  border: none;
+  font-size: 2rem;
+  background-color: transparent;
+  position: absolute;
+  left: 20%;
+  margin-left: -6rem;
+  color: #ebf5f7;
+  width: 3rem;
+  display: grid;
+  place-items: center;
+  height: 3rem;
+  background-color: #ef233c;
+  border-radius: 50%;
+}
+/* .detail-back-btn:hover,
+.main-back-btn:hover, */
+button:is(.detail-back-btn, .main-back-btn):hover {
+  background-color: #fbfffd;
+  border: 1px solid #ef233c;
+  color: #ef233c;
+}
+.detail-back-btn {
+  top: -15%;
+  left: 10%;
+}
+@media (max-width: 960px) {
+  .detail-back-btn {
+    left: 20%;
+    top: 2%;
+  }
+}
 @keyframes fadeIn {
   0% {
     background-color: hsl(200, 20%, 80%);

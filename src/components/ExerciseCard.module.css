@@ -6,6 +6,10 @@
   border-radius: 10px;
   flex-direction: column;
 }
+.card:hover {
+  scale: 1.03;
+  transition: 0.5s;
+}
 .card img {
   margin: 0 auto;
   max-width: 60%;

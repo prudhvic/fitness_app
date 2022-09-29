@@ -1,63 +1,63 @@
-.details{
-    display: flex;
-    align-items: center;
-    gap: 2em;
-    padding: 1em;
-    justify-content: center;
+.details {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+  position: relative;
+  justify-content: center;
 }
-.detail{
-    display: grid;
-    gap: 1em;
+.detail {
+  display: grid;
+  gap: 1em;
 }
-.info{
-    display: grid;
-    gap: 1em;
+.info {
+  display: grid;
+  gap: 1em;
 }
-.details p{
-    font-size: 1.1rem;
-    text-align: justify;
-    line-height: 1.6;
+.details p {
+  font-size: 1.1rem;
+  text-align: justify;
+  line-height: 1.6;
 }
-.detail h2{
-    font-size: 2em;
+.detail h2 {
+  font-size: 2em;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.tags {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.tags > div {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.detail button {
+  background-color: #ef233c;
+  color: #edf2f4;
+  border: 1px solid #edf2f4;
+  padding: 0.3em;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+@media (max-width: 960px) {
+  .details {
+    flex-direction: column;
+  }
+  .details img {
+    max-width: 100%;
+  }
+  .details h2 {
+    font-size: 1.5rem;
+  }
+  .detail p {
+    font-size: 0.94rem;
     text-transform: capitalize;
-    font-weight: 500;
-}
-.tags{
-    display: flex;
-    gap: 1em;
-    align-items: center;
-}
-.tags>div{
-    display: grid;
-    align-items: center;
-    justify-items: center;
-}
-.detail button{
-    background-color:#ef233c ;
-    color: #edf2f4;
-    border: 1px solid #edf2f4;
-    padding: .3em;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    margin-bottom: 1em;
-
-}
-@media (max-width:960px){
-    .details{
-        flex-direction: column;
-    }
-    .details img{
-        max-width: 100%;
-    }
-    .details h2{
-        font-size: 1.5rem;
-    }
-    .detail p{
-        font-size: .94rem;
-        text-transform: capitalize;
-    }
-    .tags button{
-        font-size: .9rem;
-    }
+  }
+  .tags button {
+    font-size: 0.9rem;
+  }
 }
