@@ -15,7 +15,7 @@ const SignUP = () => {
   let navigate = useNavigate();
   const signIn = () => {
     let googleAuthprovider = new GoogleAuthProvider();
-    signInWithRedirect(auth, googleAuthprovider)
+    signInWithPopup(auth, googleAuthprovider)
       .then((res) => {
         console.log(res);
       })
@@ -28,12 +28,11 @@ const SignUP = () => {
       navigate("/");
     }
   }, [user, navigate]);
-  if (!user && loading) {
+  if (loading) {
     return (
       <>
         <div className="loader-container">
           <Loader />
-          <p>Already signed in redirecting to Homepage:)</p>
         </div>
       </>
     );
