@@ -4,13 +4,12 @@ import exerciseLogo from "../assets/images/Logo.png";
 import styles from "./Navbar.module.css";
 import { FaHome, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { MdFitnessCenter } from "react-icons/md";
-import { useAuthContext } from "../context/AuthContext";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
-  let { user, loading } = useAuthContext();
+  const { logout } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   let signout = () => {
-    signOut(auth);
+    logout({ returnTo: window.location.origin });
   };
   return (
     <header className={styles.header}>

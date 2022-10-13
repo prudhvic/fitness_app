@@ -5,9 +5,7 @@ import ExerciseDetail from "./pages/ExerciseDetail";
 import Navbar from "./components/Navbar";
 import ExercisePage from "./pages/Exercises";
 import SignUP from "./pages/SignUp";
-import { useAuthContext } from "./context/AuthContext";
 function App() {
-  let { user, loading } = useAuthContext();
   return (
     <div className="App">
       <Navbar />

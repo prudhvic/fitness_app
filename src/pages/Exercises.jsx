@@ -4,22 +4,17 @@ import BodyParts from "../components/BodyParts";
 import Exercises from "../components/Exercises";
 import Paginate from "../components/Paginate";
 import SearchExercises from "../components/SearchExercises";
-import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Loader from "../utils/Loader";
+import { useAuth0 } from "@auth0/auth0-react";
 const ExercisePage = () => {
-  let { user, loading } = useAuthContext();
   let navigate = useNavigate();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   useEffect(() => {
-    if (!user) {
+    if (!user && !isAuthenticated) {
       navigate("/auth/signin");
-    } else {
-      navigate("/exercises");
     }
-  }, [user, navigate]);
-  if (loading) {
-    return <Loader />;
-  }
+  }, [user]);
   return (
     <>
       <SearchExercises />

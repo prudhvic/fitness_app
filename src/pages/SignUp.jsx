@@ -1,49 +1,18 @@
-import { FcGoogle } from "react-icons/fc";
 import React from "react";
-import { auth } from "../firebase/firebase";
-import { useNavigate } from "react-router-dom";
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithRedirect,
-} from "firebase/auth";
-import { useAuthContext } from "../context/AuthContext";
-import { useEffect } from "react";
-import Loader from "../utils/Loader";
-const SignUP = () => {
-  let { user, loading } = useAuthContext();
-  let navigate = useNavigate();
-  const signIn = () => {
-    let googleAuthprovider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleAuthprovider)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
-  if (loading) {
-    return (
-      <>
-        <div className="loader-container">
-          <Loader />
-        </div>
-      </>
-    );
-  }
+import { useAuth0 } from "@auth0/auth0-react";
+import { FcGoogle } from "react-icons/fc";
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <div className="container-auth">
-      <button className="signin-btn" onClick={signIn}>
+      <h3>welcome To Fitness App</h3>
+      <h2>signIn for Best experince</h2>
+      <button className="signin-btn" onClick={() => loginWithRedirect()}>
         <FcGoogle /> signIn with google
       </button>
     </div>
   );
 };
 
-export default SignUP;
+export default LoginButton;

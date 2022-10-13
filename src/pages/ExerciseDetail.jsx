@@ -1,10 +1,10 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Detail from "../components/Detail";
 import Exercises from "../components/Exercises";
 import ExerciseVideos from "../components/ExerciseVideos";
 import SimilarExercises from "../components/SimilarExercises";
-import { useAuthContext } from "../context/AuthContext";
 import {
   ExerciseOptions,
   ExerciseVideoOptions,
@@ -13,6 +13,7 @@ import {
 import Loader from "../utils/Loader";
 const ExerciseDetail = () => {
   let [exercise, setExercise] = useState({});
+  const { user, isAuthenticated, isLoading } = useAuth0();
   let params = useParams();
   let [targetExercises, setTargetExercises] = useState([]);
   let [equipmentExercises, setEquipmentExercises] = useState([]);
@@ -50,16 +51,12 @@ const ExerciseDetail = () => {
   }, [params.id, exercise.name]);
   console.log(targetExercises);
   console.log(exercise);
-  let { user, loading } = useAuthContext();
   let navigate = useNavigate();
   useEffect(() => {
     if (!user) {
       navigate("/auth/signin");
     }
-  }, [user, navigate]);
-  if (loading) {
-    return <Loader />;
-  }
+  }, [user]);
   return (
     <div>
       <Detail exercise={exercise} />
