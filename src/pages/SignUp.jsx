@@ -1,8 +1,12 @@
-import { FcGoogle} from "react-icons/fc";
+import { FcGoogle } from "react-icons/fc";
 import React from "react";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
+} from "firebase/auth";
 import { useAuthContext } from "../context/AuthContext";
 import { useEffect } from "react";
 import Loader from "../utils/Loader";
@@ -11,7 +15,7 @@ const SignUP = () => {
   let navigate = useNavigate();
   const signIn = () => {
     let googleAuthprovider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleAuthprovider)
+    signInWithRedirect(auth, googleAuthprovider)
       .then((res) => {
         console.log(res);
       })

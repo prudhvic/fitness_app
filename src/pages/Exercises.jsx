@@ -14,7 +14,7 @@ const ExercisePage = () => {
     if (!user) {
       navigate("/auth/signin");
     } else {
-      navigate("/");
+      navigate("/exercises");
     }
   }, [user, navigate]);
   if (loading) {
