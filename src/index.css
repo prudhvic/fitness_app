@@ -12,3 +12,35 @@ a {
   text-decoration: none;
   list-style: none;
 }
+.loader-container {
+  display: grid;
+  background-color: aliceblue;
+  place-items: center;
+  height: 60vh;
+  gap: 3em;
+  place-content: center;
+  text-align: center;
+}
+.loader-container p {
+  color: rgb(48, 44, 44);
+  font-weight: 600;
+}
+.container-auth {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  height: 60vh;
+  max-width: 370px;
+  margin: 0 auto;
+}
+.signin-btn {
+  font-size: 1.5rem;
+  padding: 0.4em 0.8em;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}

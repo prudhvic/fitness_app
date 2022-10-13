@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Detail from "../components/Detail";
 import Exercises from "../components/Exercises";
 import ExerciseVideos from "../components/ExerciseVideos";
 import SimilarExercises from "../components/SimilarExercises";
+import { useAuthContext } from "../context/AuthContext";
 import {
   ExerciseOptions,
   ExerciseVideoOptions,
   fetchData,
 } from "../utils/fetchData";
+import Loader from "../utils/Loader";
 const ExerciseDetail = () => {
   let [exercise, setExercise] = useState({});
   let params = useParams();
@@ -48,6 +50,16 @@ const ExerciseDetail = () => {
   }, [params.id, exercise.name]);
   console.log(targetExercises);
   console.log(exercise);
+  let { user, loading } = useAuthContext();
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+      navigate("/auth/signin");
+    }
+  }, [user, navigate]);
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div>
       <Detail exercise={exercise} />

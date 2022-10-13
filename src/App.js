@@ -4,8 +4,10 @@ import Home from "./pages/Home";
 import ExerciseDetail from "./pages/ExerciseDetail";
 import Navbar from "./components/Navbar";
 import ExercisePage from "./pages/Exercises";
-import Skeleton from "./utils/Skeleton";
+import SignUP from "./pages/SignUp";
+import { useAuthContext } from "./context/AuthContext";
 function App() {
+  let { user, loading } = useAuthContext();
   return (
     <div className="App">
       <Navbar />
@@ -13,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/exercises" element={<ExercisePage />} />
         <Route path="/exercises/:id" element={<ExerciseDetail />} />
+        <Route path="/auth/signin" element={<SignUP />} />
       </Routes>
     </div>
   );
