@@ -7,7 +7,7 @@ import { MdFitnessCenter } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
   const { logout } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
   let signout = () => {
     logout({ returnTo: window.location.origin });
   };
@@ -39,7 +39,7 @@ const Navbar = () => {
           ) : (
             <li>
               <FaSignInAlt />
-              <Link to="/auth/signin">signup</Link>
+              <button onClick={() => loginWithRedirect()}>signup</button>
             </li>
           )}
         </ul>

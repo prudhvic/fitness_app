@@ -54,7 +54,7 @@ const ExerciseDetail = () => {
   let navigate = useNavigate();
   useEffect(() => {
     if (!user) {
-      navigate("/auth/signin");
+      navigate("/");
     }
   }, [user]);
   return (

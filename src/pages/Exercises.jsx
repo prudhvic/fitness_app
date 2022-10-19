@@ -12,7 +12,7 @@ const ExercisePage = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   useEffect(() => {
     if (!user && !isAuthenticated) {
-      navigate("/auth/signin");
+      navigate("/");
     }
   }, [user]);
   return (
