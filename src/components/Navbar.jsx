@@ -39,7 +39,12 @@ const Navbar = () => {
           ) : (
             <li>
               <FaSignInAlt />
-              <button onClick={() => loginWithRedirect()}>signup</button>
+              <button
+                className={styles.logoutBtn}
+                onClick={() => loginWithRedirect()}
+              >
+                signup
+              </button>
             </li>
           )}
         </ul>
