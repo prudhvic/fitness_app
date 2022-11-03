@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { useContext, useState, useEffect } from "react";
 import { createContext } from "react";
 import { ExerciseOptions, fetchData } from "../utils/fetchData";
@@ -7,7 +8,7 @@ let ExerciseContextProvider = ({ children }) => {
   let [bodyParts, setBodyParts] = useState([]);
   let [currentPage, setCurrentPage] = useState(1);
   let [exercisesPerPage, setExercisesPerPage] = useState(30);
-
+  let { user } = useAuth0();
   let indexOfLastExercise = currentPage * exercisesPerPage;
   let indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
   console.log(indexOfFirstExercise, indexOfLastExercise);
@@ -24,8 +25,10 @@ let ExerciseContextProvider = ({ children }) => {
       setExercises(data);
       setFilterExercises(data);
     };
-    fetchExercises();
-  }, []);
+    if (user) {
+      fetchExercises();
+    }
+  }, [user]);
   useEffect(() => {
     let fetchBodyparts = async () => {
       let data = await fetchData(
