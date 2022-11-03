@@ -73,6 +73,40 @@ button:is(.detail-back-btn, .main-back-btn):hover {
   top: -15%;
   left: 10%;
 }
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  position: absolute;
+  top: 0;
+  place-content: center;
+  z-index: 9000000000000000;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.overlay>div {
+  width: 300px;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 1em;
+  flex-direction: column;
+  height: 200px;
+  background-color: rgba(239, 35, 60, .9);
+  color: white;
+  border-radius: 30px;
+}
+
+.overlay button {
+  background-color: #ebf5f7;
+  border: none;
+  padding: .4em;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #ef233c;
+  font-size: 1.2rem;
+
+}
 
 .lds-ring {
   display: inline-block;
@@ -115,7 +149,17 @@ button:is(.detail-back-btn, .main-back-btn):hover {
   .main-back-btn {
     display: none;
   }
+  .overlay{
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+  }
+  .overlay>div{
+    position: absolute;
+    top: 20%;
+  }
 }
+
 @keyframes fadeIn {
   0% {
     background-color: hsl(200, 20%, 80%);
