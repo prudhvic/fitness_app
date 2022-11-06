@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import exerciseLogo from "../assets/images/Logo.png";
 import styles from "./Navbar.module.css";
 import { FaHome, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { MdFitnessCenter } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
+
 const Navbar = () => {
   const { logout } = useAuth0();
   const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
@@ -21,13 +22,25 @@ const Navbar = () => {
         <ul>
           <li>
             <FaHome />
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? styles.activelink : "")}
+            >
+              Home
+            </NavLink>
           </li>
           {user ? (
             <>
               <li>
                 <MdFitnessCenter />
-                <Link to="/exercises">Exercises</Link>
+                <NavLink
+                  to="/exercises"
+                  className={({ isActive }) =>
+                    isActive ? styles.activelink : ""
+                  }
+                >
+                  Exercises
+                </NavLink>
               </li>
               <li>
                 <FaSignOutAlt />

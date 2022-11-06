@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  border-radius: 10px;
 }
 .header a {
   color: #0c1446;
@@ -24,6 +25,28 @@
 .logoutBtn {
   background-color: transparent;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
+  padding: .3em;
+}
+li:has(.logoutBtn):hover{
+  color: white;
+}
+li:has(.logoutBtn):hover .logoutBtn{
+  color: white;
+}
+li:hover{
+  background-color: black;
+  color: white;
+  padding: .4em;
+}
+li:hover a{
+  color: white;
+}
+li:has(.activelink){
+  background-color: black;
+  padding: .4em;
+}
+li:has(.activelink) svg,li:has(.activelink) a{
+  color: white;
 }
