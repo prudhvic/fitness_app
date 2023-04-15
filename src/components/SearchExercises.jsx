@@ -7,11 +7,13 @@ const SearchExercises = () => {
   return (
     <form
       onSubmit={(e) => {
-        e.preventDefault();
+        if (e.key == "Enter" || e.keycode == 13) {
+          e.preventDefault();
+        }
       }}
       className={styles.form}
     >
-      <BackBtn className="main-back-btn" />
+      {/* <BackBtn className="main-back-btn" /> */}
       <div className={styles["form-control"]}>
         <input
           type="text"

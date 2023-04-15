@@ -4,24 +4,30 @@
   align-items: center;
   padding: 1em;
 }
+
 .header h1 img {
   width: 100%;
   object-fit: cover;
 }
+
 .header ul {
   display: flex;
   gap: 2em;
+  margin-left: 1rem;
 }
+
 .header ul li {
   display: flex;
   align-items: center;
   gap: 0.3rem;
   border-radius: 10px;
 }
+
 .header a {
   color: #0c1446;
   font-weight: 600;
 }
+
 .logoutBtn {
   background-color: transparent;
   border: none;
@@ -29,24 +35,31 @@
   font-weight: bold;
   padding: .3em;
 }
-li:has(.logoutBtn):hover{
+
+li:has(.logoutBtn):hover {
   color: white;
 }
-li:has(.logoutBtn):hover .logoutBtn{
+
+li:has(.logoutBtn):hover .logoutBtn {
   color: white;
 }
-li:hover{
+
+li:hover {
   background-color: black;
   color: white;
   padding: .4em;
 }
-li:hover a{
+
+li:hover a {
   color: white;
 }
-li:has(.activelink){
+
+li:has(.activelink) {
   background-color: black;
   padding: .4em;
 }
-li:has(.activelink) svg,li:has(.activelink) a{
+
+li:has(.activelink) svg,
+li:has(.activelink) a {
   color: white;
 }

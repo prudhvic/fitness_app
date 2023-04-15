@@ -5,11 +5,13 @@
   padding: 1em;
   align-items: center;
 }
+
 .form-control {
   display: flex;
   align-items: center;
   gap: 1em;
 }
+
 .form-control input,
 .form-control button {
   padding: 0.8em;
@@ -17,21 +19,26 @@
   font-weight: bold;
   cursor: pointer;
 }
+
 .form-control input {
-  width: 400px;
+  width: 300px;
   max-width: 300px;
   border: 3px solid rgb(54, 26, 26);
+  overflow: hidden;
 }
+
 .form-control button {
   background-color: rgb(21, 166, 118);
   color: aliceblue;
   font-size: 1.1rem;
   padding: 0.4em 0.8em;
 }
+
 .form-control button:hover {
   background-color: white;
   color: rgb(21, 166, 118);
 }
+
 @media (max-width: 960px) {
   .form-control input {
     width: 200px;

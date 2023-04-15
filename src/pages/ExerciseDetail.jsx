@@ -13,6 +13,7 @@ import {
 import Loader from "../utils/Loader";
 const ExerciseDetail = () => {
   let [exercise, setExercise] = useState({});
+  console.log(exercise)
   const { user, isAuthenticated, isLoading } = useAuth0();
   let params = useParams();
   let [targetExercises, setTargetExercises] = useState([]);
@@ -26,31 +27,32 @@ const ExerciseDetail = () => {
         ExerciseOptions
       );
       setExercise(data);
+      fetchSimilarExercises(data)
     };
     fetchExercise();
   }, [params.id]);
-  useEffect(() => {
-    let fetchSimilarExercises = async () => {
-      const exerciseVideosData = await fetchData(
-        `${youtubeSearchUrl}/search?query=${exercise.name} exercise`,
-        ExerciseVideoOptions
-      );
-      setExerciseVideos(exerciseVideosData.contents);
-      let targetexercises = await fetchData(
-        `https://exercisedb.p.rapidapi.com/exercises/target/${exercise?.target}`,
-        ExerciseOptions
-      );
-      setTargetExercises(targetexercises);
-      let equipmentexercises = await fetchData(
-        `https://exercisedb.p.rapidapi.com/exercises/equipment/${exercise?.equipment}`,
-        ExerciseOptions
-      );
-      setEquipmentExercises(equipmentexercises);
-    };
-    fetchSimilarExercises();
-  }, [params.id, exercise.name]);
+
+  let fetchSimilarExercises = async (exercise) => {
+    const exerciseVideosData = await fetchData(
+      `${youtubeSearchUrl}/search?query=${exercise.name} exercise`,
+      ExerciseVideoOptions
+    );
+    setExerciseVideos(exerciseVideosData.contents);
+    let targetexercises = await fetchData(
+      `https://exercisedb.p.rapidapi.com/exercises/target/${exercise?.target}`,
+      ExerciseOptions
+    );
+    setTargetExercises(targetexercises);
+    let equipmentexercises = await fetchData(
+      `https://exercisedb.p.rapidapi.com/exercises/equipment/${exercise?.equipment}`,
+      ExerciseOptions
+    );
+    setEquipmentExercises(equipmentexercises);
+  };
+  // fetchSimilarExercises();
+
   console.log(targetExercises);
-  console.log(exercise);
+  console.log(exercise.equipment);
   let navigate = useNavigate();
   useEffect(() => {
     if (!user) {
@@ -59,14 +61,14 @@ const ExerciseDetail = () => {
   }, [user]);
   return (
     <div>
-      <Detail exercise={exercise} />
-      <ExerciseVideos Exercisevideos={Exercisevideos} name={exercise.name} />
+      <Detail exercise={exercise && exercise} />
+      <ExerciseVideos Exercisevideos={Exercisevideos} name={exercise?.name} />
       <SimilarExercises
-        exercises={targetExercises}
+        exercises={targetExercises && targetExercises}
         title="similar target Exercises"
       />
       <SimilarExercises
-        exercises={equipmentExercises}
+        exercises={equipmentExercises && equipmentExercises}
         title="similar equipment Exercises"
       />
     </div>

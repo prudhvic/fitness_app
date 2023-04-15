@@ -5,9 +5,12 @@ import { MdKeyboardBackspace } from "react-icons/md";
 const BackBtn = ({ className }) => {
   let navigate = useNavigate();
   return (
-    <button className={className} onClick={() => navigate(-1)}>
-      <MdKeyboardBackspace />
-    </button>
+    <div>
+
+      <button className={className} onClick={() => navigate(-1)}>
+        <MdKeyboardBackspace />
+      </button>
+    </div>
   );
 };
 

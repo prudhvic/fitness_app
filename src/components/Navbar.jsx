@@ -34,6 +34,7 @@ const Navbar = () => {
               <li>
                 <MdFitnessCenter />
                 <NavLink
+                  end
                   to="/exercises"
                   className={({ isActive }) =>
                     isActive ? styles.activelink : ""

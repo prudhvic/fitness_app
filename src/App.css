@@ -1,6 +1,7 @@
 * {
   text-transform: capitalize;
 }
+
 body {
   background-color: #ebf5f7;
   height: 100%;
@@ -17,6 +18,7 @@ body {
   box-shadow: 0 0 0px black;
   border-radius: 10px;
 }
+
 .img-loader {
   background-color: rgb(228, 217, 217);
   width: 100px;
@@ -24,6 +26,7 @@ body {
   border-radius: 50%;
   animation: fadeIn 1s linear infinite;
 }
+
 .title-loader {
   background-color: rgb(228, 217, 217);
   width: 60px;
@@ -33,6 +36,7 @@ body {
   margin-top: 10px;
   border-radius: 4px;
 }
+
 .text-loader {
   width: 150px;
   animation: fadeIn 1s linear infinite;
@@ -42,18 +46,20 @@ body {
   height: 20px;
   margin-top: 5px;
 }
+
 .flex {
   display: flex;
   gap: 1em;
 }
+
 .main-back-btn,
 .detail-back-btn {
   border: none;
   font-size: 2rem;
-  background-color: transparent;
+  background-color: black;
   position: absolute;
   left: 20%;
-  margin-left: -6rem;
+  margin-left: -4rem;
   color: #ebf5f7;
   width: 3rem;
   display: grid;
@@ -61,7 +67,9 @@ body {
   height: 3rem;
   background-color: #ef233c;
   border-radius: 50%;
+  overflow: hidden;
 }
+
 /* .detail-back-btn:hover,
 .main-back-btn:hover, */
 button:is(.detail-back-btn, .main-back-btn):hover {
@@ -69,10 +77,12 @@ button:is(.detail-back-btn, .main-back-btn):hover {
   border: 1px solid #ef233c;
   color: #ef233c;
 }
+
 .detail-back-btn {
   top: -15%;
   left: 10%;
 }
+
 .overlay {
   height: 100%;
   width: 100%;
@@ -114,6 +124,7 @@ button:is(.detail-back-btn, .main-back-btn):hover {
   width: 80px;
   height: 80px;
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -126,35 +137,43 @@ button:is(.detail-back-btn, .main-back-btn):hover {
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #ff2768 transparent transparent transparent;
 }
+
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
+
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
+
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
 @media (max-width: 960px) {
+
   .detail-back-btn,
   .main-back-btn {
     display: none;
   }
-  .overlay{
+
+  .overlay {
     height: 200vh;
     display: flex;
     justify-content: center;
   }
-  .overlay>div{
+
+  .overlay>div {
     position: absolute;
     top: 20%;
   }
@@ -164,6 +183,7 @@ button:is(.detail-back-btn, .main-back-btn):hover {
   0% {
     background-color: hsl(200, 20%, 80%);
   }
+
   100% {
     background-color: hsl(200, 20%, 95%);
   }

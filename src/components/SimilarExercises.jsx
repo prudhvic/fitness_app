@@ -8,7 +8,7 @@ const SimilarExercises = ({ exercises, title }) => {
       <h2>{title}</h2>
       <main className={styles.exercises}>
         {exercises &&
-          exercises.map((exercise) => (
+          exercises?.map((exercise) => (
             <ExerciseCard {...exercise} id={exercise.id} key={exercise.id} />
           ))}
       </main>
